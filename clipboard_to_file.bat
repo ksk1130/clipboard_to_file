@@ -8,7 +8,7 @@ for /f "usebackq delims=" %%a in (`powershell get-clipboard`) do set CLIP_DATA=%
 echo %CLIP_DATA%
 
 REM 既存のファイル内容をクリップボードに上書き(退避)
-type %OUTPUT_FILE_DIR%\%OUTPUT_FILE_NAME% | clip
+findstr "." %OUTPUT_FILE_DIR%%OUTPUT_FILE_NAME% | clip
 
 REM 新しい⇒古いの順番でファイルに書き込み
 echo %CLIP_DATA% >          %OUTPUT_FILE_DIR%\%OUTPUT_FILE_NAME%
